@@ -1,5 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Prime Retail Group">
-  <rect width="64" height="64" fill="#1c1917"/>
-  <text x="32" y="40" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#f7f3eb">PR</text>
-  <text x="50" y="40" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#c45c26">G</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" fill="#10213F"/>
+  <rect x="10" y="28" width="14" height="24" fill="#D4AB63"/>
+  <rect x="26" y="18" width="12" height="34" fill="#F7F1E7"/>
+  <rect x="40" y="22" width="14" height="30" fill="#D4AB63"/>
+  <path d="M8 28 L32 10 L56 28" stroke="#F7F1E7" stroke-width="3" fill="none"/>
 </svg>
