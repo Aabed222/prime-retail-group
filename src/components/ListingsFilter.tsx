@@ -1,8 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { ListingCard } from "./ListingCard";
 import type { Listing } from "@/data/listings";
+import { CREXI_BROWSE_URL, LOOPNET_BROWSE_URL } from "@/lib/site";
 
 type Props = {
   items: Listing[];
@@ -131,9 +133,36 @@ export function ListingsFilter({ items, showStatus = true }: Props) {
       </div>
 
       {filtered.length === 0 && (
-        <p className="mt-8 text-center text-slate">
-          No listings match these filters. Try resetting.
-        </p>
+        <div className="mt-8 border border-border bg-white p-8 text-center">
+          <p className="text-slate">
+            No sample listings match these filters. Try resetting, or browse
+            live marketplace inventory instead.
+          </p>
+          <div className="mt-5 flex flex-wrap justify-center gap-3">
+            <button type="button" onClick={reset} className="btn-outline-dark !py-2 !text-[0.65rem]">
+              Reset filters
+            </button>
+            <a
+              href={CREXI_BROWSE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline-dark !py-2 !text-[0.65rem]"
+            >
+              Browse on Crexi
+            </a>
+            <a
+              href={LOOPNET_BROWSE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline-dark !py-2 !text-[0.65rem]"
+            >
+              Browse on LoopNet
+            </a>
+            <Link href="/contact" className="btn-gold !py-2 !text-[0.65rem]">
+              Contact us →
+            </Link>
+          </div>
+        </div>
       )}
     </div>
   );
