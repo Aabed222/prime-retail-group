@@ -13,8 +13,8 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative min-h-[78vh] overflow-hidden">
         <Image
-          src="/images/hero-shopping-center-rendering.png"
-          alt="Architectural rendering of a modern retail shopping center"
+          src="/images/hero-fast-food-qsr.png"
+          alt="Architectural rendering of a freestanding fast-food restaurant at a retail center"
           fill
           priority
           className="object-cover"
