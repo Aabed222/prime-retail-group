@@ -1,13 +1,14 @@
 export const siteConfig = {
   name: "Prime Retail Group",
   shortName: "PRG",
-  tagline: "Bakersfield & Central Valley commercial real estate",
+  tagline: "Retail commercial real estate & business opportunities",
   description:
-    "Prime Retail Group is a Bakersfield-based commercial platform spanning retail leasing, tenant representation, investment sales, development, property management, and multi-venture advisory across Kern County and the Central Valley.",
+    "Prime Retail Group advises on retail commercial real estate and business opportunities across Bakersfield, Kern County, and Central California.",
   url: "https://prime-retail-group.vercel.app",
   phone: "(661) 496-0838",
   phoneHref: "tel:+16614960838",
   email: "info@primeretailgroup.com",
+  hours: "By appointment",
   address: {
     line1: "1005 Stine Road",
     line2: "Bakersfield, CA 93309",
@@ -17,191 +18,108 @@ export const siteConfig = {
 
 export const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
+  { href: "/listings", label: "Listings" },
+  { href: "/leasing", label: "Leasing" },
+  { href: "/future-dev", label: "Future Dev" },
   { href: "/services", label: "Services" },
-  { href: "/properties", label: "Properties" },
-  { href: "/insights", label: "Insights" },
+  { href: "/sba-calculator", label: "SBA Calc" },
+  { href: "/team", label: "Team" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
+] as const;
+
+export const CREXI_BROWSE_URL =
+  "https://www.crexi.com/properties?query=Bakersfield%2C%20CA";
+
+export const LOOPNET_BROWSE_URL =
+  "https://www.loopnet.com/search/commercial-real-estate/bakersfield-ca/for-sale/";
+
+export const LOOPNET_LEASE_BROWSE_URL =
+  "https://www.loopnet.com/search/commercial-real-estate/bakersfield-ca/for-lease/";
+
+export const JOBAH_INVENTORY_REF_URL = "https://jobahcri.com/listings";
+
+export const pillars = [
+  {
+    title: "Commercial sales",
+    body: "Retail centers, pads, strip, and income properties across Kern County and the Central Valley.",
+  },
+  {
+    title: "Business opportunities",
+    body: "Markets, restaurants, convenience, and operating businesses ready for a new owner.",
+  },
+  {
+    title: "Leasing",
+    body: "Landlord and tenant representation for neighborhood retail and corridor storefronts.",
+  },
+  {
+    title: "Investment advisory",
+    body: "Underwriting, positioning, and disposition strategy for retail investors.",
+  },
 ] as const;
 
 export const services = [
   {
-    id: "retail-leasing",
-    title: "Retail Leasing",
-    short: "Landlord-side leasing for centers, pads, and street retail.",
+    id: "commercial-sales",
+    title: "Commercial property sales",
     description:
-      "Position assets, market vacancies, and secure creditworthy tenants along Bakersfield and Central Valley retail corridors.",
-    href: "/services#retail-leasing",
+      "Buy- and sell-side advisory for retail centers, pads, strip assets, and mixed-use investments throughout Bakersfield and Central California.",
+  },
+  {
+    id: "business-ops",
+    title: "Business opportunity sales",
+    description:
+      "Guidance for restaurants, markets, convenience concepts, and other operating businesses seeking a confidential sale or acquisition.",
+  },
+  {
+    id: "landlord-rep",
+    title: "Landlord representation",
+    description:
+      "Vacancy marketing, tenant screening, and lease negotiation that protects NOI and asset reputation.",
   },
   {
     id: "tenant-rep",
-    title: "Tenant Representation",
-    short: "Site selection and lease negotiation for growing brands.",
+    title: "Tenant representation",
     description:
-      "Help retailers and service concepts evaluate rooftops, co-tenancy, and deal structure before committing to Kern County locations.",
-    href: "/services#tenant-rep",
+      "Site selection and lease structure for retailers and service brands entering or expanding in Kern County.",
   },
   {
-    id: "investment-sales",
-    title: "Investment Sales",
-    short: "Buy- and sell-side advisory for income-producing retail.",
+    id: "investment",
+    title: "Investment advisory",
     description:
-      "Underwrite, market, and close retail and mixed-use investments with local comps and ownership-minded diligence.",
-    href: "/services#investment-sales",
+      "Comps, underwriting support, and exit planning for owners holding Central Valley retail exposure.",
   },
   {
-    id: "development",
-    title: "Development Advisory",
-    short: "Pad deals, entitlements guidance, and build-to-suit strategy.",
+    id: "consultations",
+    title: "Owner consultations",
     description:
-      "Support owners and users navigating site readiness, user requirements, and delivery timelines in the Central Valley.",
-    href: "/services#development",
-  },
-  {
-    id: "property-mgmt",
-    title: "Property Management",
-    short: "Day-to-day operations with a landlord's long-view.",
-    description:
-      "Leasing coordination, vendor oversight, and tenant relations that protect NOI and asset reputation.",
-    href: "/services#property-mgmt",
-  },
-  {
-    id: "ventures",
-    title: "Multi-Venture Advisory",
-    short: "Holding-company perspective across retail and related ventures.",
-    description:
-      "An umbrella for brand ventures and capital decisions that sit alongside commercial real estate ownership.",
-    href: "/services#ventures",
+      "Straight-talk sessions for landlords and operators weighing lease-up, refinance, or sale options.",
   },
 ] as const;
 
-export type PropertyStatus = "For Lease" | "For Sale" | "Example Listing";
-
-export const sampleProperties = [
+export const teamMembers = [
   {
-    id: "stine-retail-pad",
-    title: "Southwest Retail Pad Opportunity",
-    location: "Stine Road Corridor, Bakersfield",
-    type: "Retail Pad",
-    size: "±3,200 SF",
-    status: "Example Listing" as PropertyStatus,
-    price: "Call for pricing",
+    role: "Principal Advisor",
+    focus: "Retail sales, investment, and client strategy",
     blurb:
-      "High-visibility retail pad concept near established traffic generators. Suitable for QSR, service retail, or medical-adjacent use.",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
-    imageCredit: "Unsplash — commercial skyline",
+      "Leads client relationships across retail disposition, acquisition, and business opportunity work in the Central Valley.",
   },
   {
-    id: "ming-strip-center",
-    title: "Neighborhood Strip Center",
-    location: "Ming Avenue Area, Bakersfield",
-    type: "Strip Center",
-    size: "±18,500 SF",
-    status: "Example Listing" as PropertyStatus,
-    price: "Investment inquiry",
+    role: "Leasing Advisor",
+    focus: "Landlord & tenant representation",
     blurb:
-      "Multi-tenant neighborhood center concept with strong local-serving tenancy. Built for investors seeking Kern County retail exposure.",
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
-    imageCredit: "Unsplash — retail storefront",
+      "Supports vacancy marketing, site tours, and lease negotiation for neighborhood and corridor retail.",
   },
   {
-    id: "downtown-flex",
-    title: "Downtown Flex / Creative Space",
-    location: "Downtown Bakersfield",
-    type: "Flex / Office-Retail",
-    size: "±6,800 SF",
-    status: "Example Listing" as PropertyStatus,
-    price: "Lease rate TBD",
+    role: "Transaction Coordinator",
+    focus: "Diligence & closing support",
     blurb:
-      "Adaptive reuse opportunity for professional services, boutique retail, or experiential concepts near civic and dining activity.",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
-    imageCredit: "Unsplash — office interior",
-  },
-  {
-    id: "highway-land",
-    title: "Highway-Adjacent Commercial Land",
-    location: "Greater Kern County",
-    type: "Land",
-    size: "±2.4 Acres",
-    status: "Example Listing" as PropertyStatus,
-    price: "Price upon request",
-    blurb:
-      "Commercial land concept for retail development, drive-thru users, or build-to-suit delivery along a regional corridor.",
-    image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
-    imageCredit: "Unsplash — architecture site",
-  },
-] as const;
-
-export const insights = [
-  {
-    slug: "kern-county-retail-corridor-watch",
-    title: "Kern County Retail Corridor Watch: What Local Landlords Should Track",
-    category: "Market Brief",
-    date: "2026-09-10",
-    excerpt:
-      "A practical look at traffic patterns, tenancy resilience, and leasing dynamics along key Bakersfield retail corridors.",
-    readTime: "5 min read",
-  },
-  {
-    slug: "tenant-mix-that-holds-up",
-    title: "Building a Tenant Mix That Holds Up in Secondary Markets",
-    category: "Ownership",
-    date: "2026-08-22",
-    excerpt:
-      "How neighborhood centers in markets like Bakersfield can prioritize everyday demand without chasing every national brand.",
-    readTime: "6 min read",
-  },
-  {
-    slug: "site-selection-for-growing-brands",
-    title: "Site Selection for Growing Brands Entering the Central Valley",
-    category: "Occupier",
-    date: "2026-07-15",
-    excerpt:
-      "A checklist for retailers evaluating rooftops, visibility, co-tenancy, and lease structure before signing in Kern County.",
-    readTime: "4 min read",
+      "Keeps files organized from LOI through closing so brokers and clients stay focused on decisions.",
   },
 ] as const;
 
 export const stats = [
-  { value: "15+", label: "Years focused on Kern County" },
-  { value: "CV", label: "Central Valley market fluency" },
-  { value: "6", label: "Integrated service lines" },
-  { value: "Local", label: "Ownership & brokerage lens" },
-] as const;
-
-export const aboutPoints = [
-  {
-    title: "Bakersfield first",
-    body: "We lead with Central Valley expertise—not borrowed global scale. Advice is rooted in the corridors, landlords, and tenants that actually define this market.",
-  },
-  {
-    title: "Platform mindset",
-    body: "Brokerage, ownership, management, and ventures under one umbrella—useful when a deal spans more than one seat at the table.",
-  },
-  {
-    title: "Straight talk",
-    body: "Clear options, honest tradeoffs, and next steps. Built for owners and operators who value substance over slogans.",
-  },
-] as const;
-
-export const caseStudies = [
-  {
-    title: "Neighborhood center lease-up",
-    outcome: "Stabilized occupancy through local-serving tenancy and disciplined lease structure.",
-    market: "Southwest Bakersfield",
-  },
-  {
-    title: "Retail user site search",
-    outcome: "Matched a growing brand to a high-visibility pad with workable access and co-tenancy.",
-    market: "Kern County corridor",
-  },
-  {
-    title: "Investment disposition support",
-    outcome: "Positioned an income asset for sale with clear underwriting and buyer outreach.",
-    market: "Greater Bakersfield",
-  },
+  { value: "Local", label: "Bakersfield-rooted relationships" },
+  { value: "Central CA", label: "Kern County & Valley coverage" },
+  { value: "Retail+", label: "Retail & business opportunities" },
 ] as const;
