@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LeasingDualCta } from "@/components/LeasingDualCta";
 import { ListingsFilter } from "@/components/ListingsFilter";
 import { PageHero } from "@/components/PageHero";
 import { leaseListings } from "@/data/listings";
@@ -18,6 +19,7 @@ export default function LeasingPage() {
         title="Leasing"
         description="Retail, mixed-use, automotive-adjacent, and general commercial spaces — sample inventory for conversation. Pricing shown as $/mo or $/SF NNN where noted."
       />
+      <LeasingDualCta />
       <div className="border-b border-border bg-white">
         <div className="container-prg flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-slate">Looking for live lease inventory?</p>

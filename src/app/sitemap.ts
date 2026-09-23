@@ -7,6 +7,9 @@ const routes = [
   "/leasing",
   "/future-dev",
   "/services",
+  "/services/tenant-representation",
+  "/services/agency-leasing",
+  "/insights",
   "/sba-calculator",
   "/team",
   "/about",
@@ -18,6 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteConfig.url}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
-    priority: path === "" ? 1 : 0.7,
+    priority: path === "" ? 1 : path.startsWith("/services/") || path === "/insights" ? 0.8 : 0.7,
   }));
 }
