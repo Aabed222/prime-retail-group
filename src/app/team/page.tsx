@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   description: `Meet the ${siteConfig.name} advisory team — boutique retail brokerage in Bakersfield.`,
 };
 
+function initials(name: string) {
+  const parts = name.trim().split(/\s+/);
+  const first = parts[0]?.[0] ?? "";
+  const last = parts.length > 1 ? parts[parts.length - 1][0] ?? "" : "";
+  return (first + last).toUpperCase();
+}
+
 export default function TeamPage() {
   return (
     <>
@@ -15,19 +22,19 @@ export default function TeamPage() {
         tone="cream"
         eyebrow="Team"
         title="A small desk. Direct access."
-        description="Boutique coverage for retail owners and operators — roles below reflect how we staff engagements. Names and bios can be added as the firm grows."
+        description="Boutique Bakersfield desk covering retail, multifamily, and gas stations — direct access to the brokers who work your deal."
       />
       <section className="border-t border-border bg-cream pb-20">
         <div className="container-prg grid gap-6 md:grid-cols-3">
           {teamMembers.map((m) => (
             <article
-              key={m.role}
+              key={m.name}
               className="border border-border bg-white p-6 md:p-8"
             >
               <div className="mb-5 flex h-16 w-16 items-center justify-center bg-navy font-serif text-2xl text-gold">
-                {m.role.charAt(0)}
+                {initials(m.name)}
               </div>
-              <h2 className="font-serif text-2xl text-navy">{m.role}</h2>
+              <h2 className="font-serif text-2xl text-navy">{m.name}</h2>
               <p className="mt-1 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-gold">
                 {m.focus}
               </p>

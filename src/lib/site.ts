@@ -114,22 +114,40 @@ export const services = [
 
 export const teamMembers = [
   {
-    role: "Principal Advisor",
-    focus: "Retail sales, investment, and client strategy",
+    name: "Sam Abed",
+    focus: "Retail",
     blurb:
-      "Leads client relationships across retail disposition, acquisition, and business opportunity work in the Central Valley.",
+      "Focuses on retail sales and leasing across Bakersfield and the Central Valley.",
   },
   {
-    role: "Leasing Advisor",
-    focus: "Landlord & tenant representation",
+    name: "Adrian Aguilar",
+    focus: "Retail",
     blurb:
-      "Supports vacancy marketing, site tours, and lease negotiation for neighborhood and corridor retail.",
+      "Works retail sales and leasing for owners and operators in Kern County.",
   },
   {
-    role: "Transaction Coordinator",
-    focus: "Diligence & closing support",
+    name: "Felix Diaz",
+    focus: "Retail",
     blurb:
-      "Keeps files organized from LOI through closing so brokers and clients stay focused on decisions.",
+      "Helps clients with retail property sales and lease placements in the Central Valley.",
+  },
+  {
+    name: "Acram Abed",
+    focus: "Retail",
+    blurb:
+      "Supports retail brokerage across neighborhood centers, pads, and corridor storefronts.",
+  },
+  {
+    name: "Mohammed Hammad",
+    focus: "Multifamily",
+    blurb:
+      "Focuses on multifamily sales and acquisitions across the Central Valley.",
+  },
+  {
+    name: "Rocky Fahil",
+    focus: "Gas Stations",
+    blurb:
+      "Advises on gas station and convenience-related property and business opportunities.",
   },
 ] as const;
 
