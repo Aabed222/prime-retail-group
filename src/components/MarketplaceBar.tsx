@@ -1,8 +1,4 @@
-import {
-  CREXI_BROWSE_URL,
-  LOOPNET_BROWSE_URL,
-  JOBAH_INVENTORY_REF_URL,
-} from "@/lib/site";
+import { CREXI_BROWSE_URL, LOOPNET_BROWSE_URL } from "@/lib/site";
 
 export function MarketplaceBar() {
   return (
@@ -27,14 +23,6 @@ export function MarketplaceBar() {
             className="btn-outline-dark !py-2 !text-[0.65rem]"
           >
             Browse on LoopNet
-          </a>
-          <a
-            href={JOBAH_INVENTORY_REF_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-slate hover:text-gold"
-          >
-            Full inventory (ref) →
           </a>
         </div>
       </div>

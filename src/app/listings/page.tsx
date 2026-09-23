@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ListingsFilter } from "@/components/ListingsFilter";
 import { MarketplaceBar } from "@/components/MarketplaceBar";
 import { PageHero } from "@/components/PageHero";
+import { SampleInventoryNotice } from "@/components/SampleInventoryNotice";
 import { listings } from "@/data/listings";
 
 export const metadata: Metadata = {
@@ -21,6 +22,9 @@ export default function ListingsPage() {
       <MarketplaceBar />
       <section className="bg-cream py-12 md:py-16">
         <div className="container-prg">
+          <div className="mb-6">
+            <SampleInventoryNotice />
+          </div>
           <ListingsFilter items={listings} />
         </div>
       </section>
