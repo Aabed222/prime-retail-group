@@ -1,53 +1,13 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import { brands, type BrandLogo } from "@/content/brands";
 
-type Brand = {
-  name: string;
-  domain: string;
-  initials: string;
-};
-
-const brands: Brand[] = [
-  { name: "Circle K", domain: "circlek.com", initials: "CK" },
-  { name: "McDonald's", domain: "mcdonalds.com", initials: "M" },
-  { name: "Walmart", domain: "walmart.com", initials: "W" },
-  { name: "Chipotle", domain: "chipotle.com", initials: "C" },
-  { name: "Starbucks", domain: "starbucks.com", initials: "Sb" },
-  { name: "AutoZone", domain: "autozone.com", initials: "AZ" },
-  { name: "CVS", domain: "cvs.com", initials: "CVS" },
-  { name: "Walgreens", domain: "walgreens.com", initials: "Wg" },
-  { name: "Target", domain: "target.com", initials: "T" },
-  { name: "Costco", domain: "costco.com", initials: "Co" },
-  { name: "Chick-fil-A", domain: "chick-fil-a.com", initials: "CFA" },
-  { name: "Taco Bell", domain: "tacobell.com", initials: "TB" },
-  { name: "Burger King", domain: "bk.com", initials: "BK" },
-  { name: "Wendy's", domain: "wendys.com", initials: "Wen" },
-  { name: "7-Eleven", domain: "7-eleven.com", initials: "7E" },
-  { name: "Dollar General", domain: "dollargeneral.com", initials: "DG" },
-  { name: "Dollar Tree", domain: "dollartree.com", initials: "DT" },
-  { name: "O'Reilly Auto Parts", domain: "oreillyauto.com", initials: "OR" },
-  { name: "ALDI", domain: "aldi.us", initials: "ALDI" },
-  { name: "Ross", domain: "rossstores.com", initials: "Ross" },
-  { name: "TJ Maxx", domain: "tjmaxx.com", initials: "TJ" },
-  { name: "Panda Express", domain: "pandaexpress.com", initials: "PE" },
-  { name: "Jersey Mike's", domain: "jerseymikes.com", initials: "JM" },
-  { name: "Dutch Bros", domain: "dutchbros.com", initials: "DB" },
-  { name: "Home Depot", domain: "homedepot.com", initials: "HD" },
-  { name: "Lowe's", domain: "lowes.com", initials: "LOW" },
-  { name: "Best Buy", domain: "bestbuy.com", initials: "BB" },
-  { name: "KFC", domain: "kfc.com", initials: "KFC" },
-  { name: "Subway", domain: "subway.com", initials: "Sub" },
-  { name: "Domino's", domain: "dominos.com", initials: "Dom" },
-  { name: "PetSmart", domain: "petsmart.com", initials: "PS" },
-  { name: "Ulta", domain: "ulta.com", initials: "Ulta" },
-];
-
-function logoUrl(domain: string) {
-  return `https://logo.clearbit.com/${domain}`;
+function logoSrc(file: string) {
+  return `/brands/${file}`;
 }
 
-function BrandMark({ brand }: { brand: Brand }) {
+function BrandMark({ brand }: { brand: BrandLogo }) {
   const [failed, setFailed] = useState(false);
 
   const onError = useCallback(() => {
@@ -56,7 +16,7 @@ function BrandMark({ brand }: { brand: Brand }) {
 
   return (
     <div
-      className="brand-logo-item flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#e5ddd0] bg-white shadow-[0_1px_3px_rgba(16,33,63,0.06)] sm:h-16 sm:w-16 md:h-[72px] md:w-[72px]"
+      className="brand-logo-item flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#e5ddd0] bg-white shadow-[0_1px_3px_rgba(16,33,63,0.06)] sm:h-16 sm:w-16 md:h-[72px] md:w-[72px]"
       title={brand.name}
     >
       {failed ? (
@@ -69,14 +29,14 @@ function BrandMark({ brand }: { brand: Brand }) {
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src={logoUrl(brand.domain)}
+          src={logoSrc(brand.file)}
           alt={brand.name}
           width={48}
           height={48}
           loading="lazy"
           decoding="async"
           onError={onError}
-          className="h-[60%] w-[60%] object-contain"
+          className="h-[62%] w-[62%] object-contain"
         />
       )}
     </div>
@@ -90,7 +50,7 @@ function LogoTrack({ ariaHidden }: { ariaHidden?: boolean }) {
       aria-hidden={ariaHidden || undefined}
     >
       {brands.map((brand) => (
-        <li key={`${ariaHidden ? "dup-" : ""}${brand.domain}`} className="list-none">
+        <li key={`${ariaHidden ? "dup-" : ""}${brand.slug}`} className="list-none">
           <BrandMark brand={brand} />
         </li>
       ))}
@@ -139,4 +99,4 @@ export function BrandLogoCarousel() {
   );
 }
 
-export const brandLogoCount = brands.length;
+export { brandLogoCount } from "@/content/brands";
