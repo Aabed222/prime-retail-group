@@ -16,6 +16,7 @@ export type Listing = {
   category: ListingType;
   status: ListingStatus;
   price: string;
+  /** Numeric price for filtering (sale price or monthly rent) */
   priceValue: number;
   detail: string;
   image: string;
@@ -23,7 +24,10 @@ export type Listing = {
   sample?: boolean;
 };
 
-/** Sample Central Valley retail inventory — fictional PRG samples. */
+/**
+ * Sample Central Valley retail inventory for design / conversation.
+ * Clearly fictional PRG samples — not live MLS or Jobah listings.
+ */
 export const listings: Listing[] = [
   {
     id: "sw-food-mart",
@@ -83,7 +87,7 @@ export const listings: Listing[] = [
   },
   {
     id: "downtown-cafe",
-    title: "Established Cafe Concept",
+    title: "Established Café Concept",
     location: "Downtown Bakersfield",
     city: "Bakersfield",
     category: "Business",
@@ -190,6 +194,7 @@ export const listings: Listing[] = [
 ];
 
 export const featuredListings = listings.filter((l) => l.featured).slice(0, 6);
+
 export const leaseListings = listings.filter((l) => l.status === "For Lease");
 
 export const pipelineProjects = [
@@ -210,5 +215,23 @@ export const pipelineProjects = [
     summary:
       "Neighborhood retail infill concept under early evaluation — not an offering unless and until marketed.",
     image: "https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+  },
+  {
+    id: "rosedale-growth-corridor",
+    title: "Rosedale Growth Corridor Concept",
+    location: "Rosedale Highway, Bakersfield",
+    stage: "Conceptual",
+    summary:
+      "Early-stage look at pad and small-shop potential along a growing rooftop corridor — conceptual only, no active entitlements.",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+  },
+  {
+    id: "delano-corridor-concept",
+    title: "Delano Corridor Pad Concept",
+    location: "Delano, Kern County",
+    stage: "Conceptual",
+    summary:
+      "Preliminary evaluation of pad and inline retail potential to support a growing Kern County community — not yet marketed.",
+    image: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
   },
 ];
