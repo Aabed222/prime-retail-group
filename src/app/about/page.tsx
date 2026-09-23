@@ -1,94 +1,74 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { CtaBand } from "@/components/CtaBand";
-import { SectionHeading } from "@/components/SectionHeading";
-import { aboutPoints, siteConfig } from "@/lib/site";
+import { PageHero } from "@/components/PageHero";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description:
-    "Learn about Prime Retail Group—Bakersfield commercial real estate, retail ventures, and ownership across Kern County.",
+  description: `About ${siteConfig.name} — retail commercial real estate in Bakersfield and Central California.`,
 };
+
+const values = [
+  {
+    title: "Local knowledge",
+    body: "We work the corridors, centers, and operators that define Kern County retail — not borrowed narratives from coastal markets.",
+  },
+  {
+    title: "Fiduciary discipline",
+    body: "Clear options, honest tradeoffs, and documentation that protects both sides of a transaction.",
+  },
+  {
+    title: "Confidential process",
+    body: "Business opportunities and off-market conversations stay discreet until marketing is intentional.",
+  },
+];
 
 export default function AboutPage() {
   return (
     <>
-      <section className="border-b border-charcoal/10 bg-cream-deep/50 py-16 md:py-20">
-        <div className="container-prg max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-terracotta">
-            About
-          </p>
-          <h1 className="mt-3 text-4xl font-semibold tracking-tight text-charcoal md:text-5xl">
-            A Central Valley platform for retail real estate
-          </h1>
-          <p className="mt-5 text-lg leading-relaxed text-slate">
-            {siteConfig.name} is led by Bassam (Sam) Abed and based in Bakersfield.
-            We treat commercial real estate as a local craft—brokerage, ownership,
-            management, and related ventures under one disciplined umbrella.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-20">
-        <div className="container-prg grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <SectionHeading
-              eyebrow="Who we are"
-              title="Built for Kern County decision-makers"
-              description="Owners, tenants, and investors who want clear counsel grounded in this market—not a recycled national pitch deck."
+      <PageHero
+        tone="cream"
+        eyebrow="About"
+        title="Retail specialists for Bakersfield and the Central Valley."
+        description={`${siteConfig.name} is a boutique commercial platform focused on retail property and business opportunities across Kern County.`}
+      />
+      <section className="bg-cream pb-8">
+        <div className="container-prg">
+          <div className="relative aspect-[21/9] overflow-hidden md:aspect-[2.4/1]">
+            <Image
+              src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+              alt="Retail streetscape at golden hour"
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
             />
           </div>
-          <div className="space-y-6 lg:col-span-7">
-            {aboutPoints.map((point) => (
-              <div
-                key={point.title}
-                className="rounded-sm border border-charcoal/10 bg-white p-6"
-              >
-                <h2 className="text-xl font-semibold text-charcoal">{point.title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-slate">{point.body}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
-
-      <section className="bg-charcoal py-14 text-cream">
-        <div className="container-prg grid gap-8 md:grid-cols-2 md:items-center">
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-              Leadership
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-cream/75 md:text-base">
-              Bassam (Sam) Abed brings a practical, owner-oriented approach to
-              commercial conversations across Bakersfield and Kern County—bridging
-              brokerage, asset thinking, and multi-venture judgment.
-            </p>
-          </div>
-          <div className="rounded-sm border border-cream/15 bg-charcoal-soft p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
-              Contact
-            </p>
-            <p className="mt-3 text-lg font-semibold">{siteConfig.name}</p>
-            <p className="mt-1 text-sm text-cream/75">
-              {siteConfig.address.line1}
-              <br />
-              {siteConfig.address.line2}
-            </p>
-            <p className="mt-4">
-              <a className="text-cream hover:underline" href={siteConfig.phoneHref}>
-                {siteConfig.phone}
-              </a>
-            </p>
-            <Link
-              href="/contact"
-              className="mt-5 inline-flex rounded-sm bg-terracotta px-4 py-2.5 text-sm font-semibold text-cream hover:bg-terracotta-deep"
-            >
-              Schedule a Consultation
-            </Link>
-          </div>
+      <section className="bg-cream py-14 md:py-20">
+        <div className="container-prg grid gap-10 md:grid-cols-3">
+          {values.map((v) => (
+            <div key={v.title} className="border-t border-gold/50 pt-5">
+              <h2 className="font-serif text-2xl text-navy">{v.title}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-slate">{v.body}</p>
+            </div>
+          ))}
+        </div>
+        <div className="container-prg mt-14 max-w-3xl">
+          <h2 className="font-serif text-2xl text-navy">How we work</h2>
+          <p className="mt-4 text-base leading-relaxed text-slate">
+            From first conversation through closing, we keep the process
+            practical: market context, realistic pricing, and next steps you can
+            act on. Whether you are leasing a bay, selling a center, or
+            transferring an operating business, we stay close to the work.
+          </p>
+          <Link href="/contact" className="btn-gold mt-8 inline-flex">
+            Talk with our team →
+          </Link>
         </div>
       </section>
-      <CtaBand />
     </>
   );
 }
