@@ -235,3 +235,23 @@ export const pipelineProjects = [
     image: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
   },
 ];
+
+export function getListingById(id: string): Listing | undefined {
+  return listings.find((l) => l.id === id);
+}
+
+export function getRelatedListings(listing: Listing, limit = 3): Listing[] {
+  const scored = listings
+    .filter((l) => l.id !== listing.id)
+    .map((l) => {
+      let score = 0;
+      if (l.category === listing.category) score += 2;
+      if (l.city === listing.city) score += 1;
+      if (l.status === listing.status) score += 1;
+      return { listing: l, score };
+    })
+    .filter((x) => x.score > 0)
+    .sort((a, b) => b.score - a.score);
+
+  return scored.slice(0, limit).map((x) => x.listing);
+}
