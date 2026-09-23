@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BrandLogoCarousel } from "@/components/BrandLogoCarousel";
 import { HelpModule } from "@/components/HelpModule";
 import { InsightsTeasers } from "@/components/InsightsTeasers";
+import { LeasingDualCta } from "@/components/LeasingDualCta";
 import { ListingCard } from "@/components/ListingCard";
 import { SuccessStories } from "@/components/SuccessStories";
 import { featuredListings } from "@/data/listings";
@@ -11,7 +12,6 @@ import { pillars, siteConfig, stats } from "@/lib/site";
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
       <section className="relative min-h-[78vh] overflow-hidden">
         <Image
           src="/images/hero-fast-food-qsr.png"
@@ -49,7 +49,6 @@ export default function HomePage() {
 
       <BrandLogoCarousel />
 
-      {/* Stats */}
       <section className="border-b border-border bg-white">
         <div className="container-prg grid divide-y divide-border md:grid-cols-3 md:divide-x md:divide-y-0">
           {stats.map((s) => (
@@ -61,18 +60,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How can we help — C&W-inspired */}
       <HelpModule />
 
-      {/* Featured listings */}
       <section className="bg-cream py-16 md:py-20">
         <div className="container-prg">
           <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="eyebrow mb-2">Featured</p>
+              <p className="eyebrow mb-2">Featured samples</p>
               <h2 className="font-serif text-3xl text-navy md:text-4xl">
-                Active sample inventory
+                A look at the inventory we work
               </h2>
+              <p className="mt-3 max-w-xl text-sm text-slate">
+                Illustrative sample inventory showing the types of retail
+                property and business opportunities we handle — not live MLS
+                listings.
+              </p>
             </div>
             <Link
               href="/listings"
@@ -89,7 +91,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* What we do */}
       <section className="bg-navy py-16 text-white md:py-20">
         <div className="container-prg">
           <p className="eyebrow mb-3">What we do</p>
@@ -118,13 +119,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Client success stories */}
+      <LeasingDualCta />
+
       <SuccessStories />
 
-      {/* Insights */}
       <InsightsTeasers />
 
-      {/* Who we are */}
       <section className="bg-cream py-16 md:py-20">
         <div className="container-prg grid items-center gap-10 lg:grid-cols-2">
           <div>
@@ -157,7 +157,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="border-t border-border bg-cream-deep py-16 text-center md:py-20">
         <div className="container-prg max-w-2xl">
           <h2 className="font-serif text-3xl text-navy md:text-4xl">
