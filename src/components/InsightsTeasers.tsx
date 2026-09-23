@@ -15,7 +15,7 @@ export function InsightsTeasers() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {insights.map((item) => (
+          {insights.slice(0, 3).map((item) => (
             <article
               key={item.slug}
               className="flex flex-col overflow-hidden border border-border bg-cream"

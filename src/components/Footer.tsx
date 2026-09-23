@@ -42,16 +42,21 @@ export function Footer() {
             </a>
           </p>
           <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
-            {navLinks.slice(0, 6).map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-white/50 hover:text-gold"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
+            {navLinks
+              .flatMap((l) =>
+                l.children ? [{ href: l.href, label: l.label }, ...l.children] : [l],
+              )
+              .filter((l) => l.label !== "All Services")
+              .map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-white/50 hover:text-gold"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
           </ul>
         </div>
       </div>
