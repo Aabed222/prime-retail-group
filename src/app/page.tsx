@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HelpModule } from "@/components/HelpModule";
+import { InsightsTeasers } from "@/components/InsightsTeasers";
 import { ListingCard } from "@/components/ListingCard";
+import { SuccessStories } from "@/components/SuccessStories";
 import { featuredListings } from "@/data/listings";
 import { pillars, siteConfig, stats } from "@/lib/site";
 
@@ -55,6 +58,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* How can we help — C&W-inspired */}
+      <HelpModule />
+
       {/* Featured listings */}
       <section className="bg-cream py-16 md:py-20">
         <div className="container-prg">
@@ -95,13 +101,25 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <div className="mt-12">
-            <Link href="/services" className="btn-gold">
+          <div className="mt-12 flex flex-wrap gap-3">
+            <Link href="/services/tenant-representation" className="btn-gold">
+              Tenant rep →
+            </Link>
+            <Link href="/services/agency-leasing" className="btn-outline-light">
+              Agency leasing →
+            </Link>
+            <Link href="/services" className="btn-outline-light">
               All services →
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Client success stories */}
+      <SuccessStories />
+
+      {/* Insights */}
+      <InsightsTeasers />
 
       {/* Who we are */}
       <section className="bg-cream py-16 md:py-20">
