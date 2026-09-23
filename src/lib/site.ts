@@ -16,12 +16,27 @@ export const siteConfig = {
   },
 } as const;
 
-export const navLinks = [
+export type NavLink = {
+  href: string;
+  label: string;
+  children?: readonly { href: string; label: string }[];
+};
+
+export const navLinks: readonly NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/listings", label: "Listings" },
   { href: "/leasing", label: "Leasing" },
   { href: "/future-dev", label: "Future Dev" },
-  { href: "/services", label: "Services" },
+  {
+    href: "/services",
+    label: "Services",
+    children: [
+      { href: "/services/tenant-representation", label: "Tenant Rep" },
+      { href: "/services/agency-leasing", label: "Agency Leasing" },
+      { href: "/services", label: "All Services" },
+    ],
+  },
+  { href: "/insights", label: "Insights" },
   { href: "/sba-calculator", label: "SBA Calc" },
   { href: "/team", label: "Team" },
   { href: "/about", label: "About" },
