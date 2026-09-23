@@ -1,34 +1,30 @@
 import Link from "next/link";
 
-type LogoProps = {
-  variant?: "light" | "dark";
-  className?: string;
-};
-
-export function Logo({ variant = "dark", className = "" }: LogoProps) {
-  const text = variant === "light" ? "text-cream" : "text-charcoal";
-  const mark = variant === "light" ? "bg-terracotta text-cream" : "bg-charcoal text-cream";
-  const accent = variant === "light" ? "text-gold" : "text-terracotta";
-
+export function Logo({ className = "" }: { className?: string }) {
   return (
-    <Link
-      href="/"
-      className={`group inline-flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 ${className}`}
-      aria-label="Prime Retail Group home"
-    >
+    <Link href="/" className={`flex items-center gap-2.5 ${className}`}>
       <span
-        className={`flex h-10 w-10 items-center justify-center rounded-sm font-semibold tracking-tight ${mark}`}
         aria-hidden
+        className="flex h-9 w-9 shrink-0 items-center justify-center bg-navy"
       >
-        <span className="text-sm leading-none">
-          PR<span className={accent}>G</span>
-        </span>
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect x="3" y="10" width="6" height="10" fill="#D4AB63" />
+          <rect x="10" y="6" width="5" height="14" fill="#F7F1E7" />
+          <rect x="16" y="8" width="5" height="12" fill="#D4AB63" />
+          <path d="M2 10 L12 3 L22 10" stroke="#F7F1E7" strokeWidth="1.5" fill="none" />
+        </svg>
       </span>
-      <span className={`hidden sm:flex flex-col leading-tight ${text}`}>
-        <span className="text-sm font-semibold tracking-wide uppercase">
-          Prime Retail
+      <span className="leading-tight">
+        <span className="block text-[0.95rem] font-bold tracking-wide text-navy">
+          PRIME RETAIL
         </span>
-        <span className="text-[11px] font-medium tracking-[0.18em] uppercase opacity-80">
+        <span className="block text-[0.65rem] font-medium tracking-[0.2em] text-slate uppercase">
           Group
         </span>
       </span>
