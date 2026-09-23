@@ -6,8 +6,25 @@ import { services } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Full-service retail commercial brokerage — sales, business opportunities, leasing, and investment advisory.",
+    "Full-service retail commercial brokerage — tenant representation, agency leasing, sales, business opportunities, and investment advisory.",
 };
+
+const featuredServices = [
+  {
+    title: "Tenant Representation",
+    description:
+      "Site selection, occupancy-cost modeling, and lease advocacy for retailers and operators entering or expanding in Central California.",
+    href: "/services/tenant-representation",
+    cta: "Explore tenant rep",
+  },
+  {
+    title: "Agency Leasing",
+    description:
+      "Landlord representation to fill vacancies, strengthen tenant mix, and negotiate leases that protect NOI and asset reputation.",
+    href: "/services/agency-leasing",
+    cta: "Explore agency leasing",
+  },
+] as const;
 
 const icons = [
   "M4 20V8l8-5 8 5v12H4zm4-2h2v-4h4v4h2v-7l-5-3-5 3v7z",
@@ -25,23 +42,77 @@ export default function ServicesPage() {
         tone="cream"
         eyebrow="Services"
         title="Full-service commercial brokerage — nothing outsourced."
-        description="Every engagement is worked directly with our team. Below is how we help retail owners, operators, and investors across Central California."
+        description="Every engagement is worked directly with our team. Start with leasing and tenant representation, or explore the full retail desk below."
       />
-      <section className="border-t border-border bg-cream pb-20">
-        <div className="container-prg grid gap-x-12 gap-y-14 md:grid-cols-2">
-          {services.map((s, i) => (
-            <div key={s.id} id={s.id} className="flex gap-4">
-              <span className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center border border-gold/50 text-gold">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d={icons[i % icons.length]} />
-                </svg>
-              </span>
-              <div>
-                <h2 className="font-serif text-2xl text-navy">{s.title}</h2>
-                <p className="mt-3 text-base leading-relaxed text-slate">{s.description}</p>
+
+      <section className="border-t border-border bg-navy py-14 text-white md:py-16">
+        <div className="container-prg">
+          <p className="eyebrow mb-3 text-gold">Featured</p>
+          <h2 className="font-serif text-3xl text-cream md:text-4xl">
+            Leasing &amp; tenant representation
+          </h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/70">
+            The two service lines clients ask for most — dedicated pages with the
+            full process, differentiators, and next steps.
+          </p>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {featuredServices.map((s) => (
+              <div
+                key={s.href}
+                className="flex flex-col border border-white/20 bg-navy-soft/50 p-6 md:p-8"
+              >
+                <h3 className="font-serif text-2xl text-cream">{s.title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-white/70">
+                  {s.description}
+                </p>
+                <Link href={s.href} className="btn-gold mt-6 self-start">
+                  {s.cta} →
+                </Link>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream pb-20 pt-16">
+        <div className="container-prg mb-10">
+          <p className="eyebrow mb-2">All services</p>
+          <h2 className="font-serif text-2xl text-navy md:text-3xl">
+            How we help owners, operators, and investors
+          </h2>
+        </div>
+        <div className="container-prg grid gap-x-12 gap-y-14 md:grid-cols-2">
+          {services.map((s, i) => {
+            const deepLink =
+              s.id === "tenant-rep"
+                ? "/services/tenant-representation"
+                : s.id === "landlord-rep"
+                  ? "/services/agency-leasing"
+                  : null;
+            return (
+              <div key={s.id} id={s.id} className="flex gap-4">
+                <span className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center border border-gold/50 text-gold">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d={icons[i % icons.length]} />
+                  </svg>
+                </span>
+                <div>
+                  <h2 className="font-serif text-2xl text-navy">{s.title}</h2>
+                  <p className="mt-3 text-base leading-relaxed text-slate">
+                    {s.description}
+                  </p>
+                  {deepLink && (
+                    <Link
+                      href={deepLink}
+                      className="mt-3 inline-block text-[0.65rem] font-bold uppercase tracking-[0.14em] text-navy hover:text-gold"
+                    >
+                      Full service page →
+                    </Link>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
         <div className="container-prg mt-16 text-center">
           <Link href="/contact" className="btn-gold">
