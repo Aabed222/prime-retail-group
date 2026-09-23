@@ -24,6 +24,21 @@ const values = [
   },
 ];
 
+const specialties = [
+  {
+    title: "Retail",
+    body: "Neighborhood centers, strip retail, pads, and storefronts — sales, acquisitions, and leasing on both sides of the table.",
+  },
+  {
+    title: "Multifamily",
+    body: "Multifamily sales and acquisitions across the Central Valley, including assets adjacent to established retail corridors.",
+  },
+  {
+    title: "Gas stations",
+    body: "Gas station and convenience-store property and business opportunity sales, including fuel-and-c-store operations.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -47,7 +62,30 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      <section className="bg-cream py-14 md:py-20">
+      <section className="bg-cream pb-4 pt-14 md:pt-20">
+        <div className="container-prg max-w-3xl">
+          <p className="eyebrow mb-3">Our story</p>
+          <h2 className="font-serif text-2xl text-navy md:text-3xl">
+            Built in Bakersfield, for Bakersfield and the Central Valley.
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-slate">
+            {siteConfig.name} is a boutique commercial brokerage headquartered on
+            Stine Road in Bakersfield. We started with a simple premise: retail
+            owners, operators, and investors in Kern County deserve a broker who
+            actually knows the corridors — not a satellite office running
+            playbooks built for coastal markets.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-slate">
+            Today our brokers work retail sales and leasing, multifamily
+            acquisitions, and gas station and convenience-store transactions
+            across Bakersfield, Kern County, and greater Central California.
+            Every deal is worked directly by our team — nothing outsourced,
+            nothing generic.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-cream py-10 md:py-14">
         <div className="container-prg grid gap-10 md:grid-cols-3">
           {values.map((v) => (
             <div key={v.title} className="border-t border-gold/50 pt-5">
@@ -56,8 +94,46 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
-        <div className="container-prg mt-14 max-w-3xl">
-          <h2 className="font-serif text-2xl text-navy">How we work</h2>
+      </section>
+
+      <section className="border-t border-border bg-white py-14 md:py-20">
+        <div className="container-prg">
+          <p className="eyebrow mb-3">What we specialize in</p>
+          <h2 className="max-w-xl font-serif text-3xl text-navy md:text-4xl">
+            Three focused practice areas, one local team.
+          </h2>
+          <div className="mt-10 grid gap-8 md:grid-cols-3">
+            {specialties.map((s) => (
+              <div key={s.title} className="border border-border p-6">
+                <h3 className="font-serif text-xl text-navy">{s.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate">{s.body}</p>
+              </div>
+            ))}
+          </div>
+          <Link
+            href="/team"
+            className="mt-8 inline-block text-[0.7rem] font-bold uppercase tracking-[0.14em] text-navy hover:text-gold"
+          >
+            Meet the team →
+          </Link>
+        </div>
+      </section>
+
+      <section className="bg-cream py-14 md:py-20">
+        <div className="container-prg max-w-3xl">
+          <p className="eyebrow mb-3">Market focus</p>
+          <h2 className="font-serif text-2xl text-navy">
+            Bakersfield and Kern County first — Central Valley always in view.
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-slate">
+            We concentrate on the markets we know best: Bakersfield corridors
+            like Stine, Ming, Rosedale, and California Avenue, plus surrounding
+            Kern County communities including Delano and Wasco. That focus means
+            sharper comps, faster answers on zoning and traffic, and
+            relationships with the landlords, operators, and lenders who
+            actually move deals here.
+          </p>
+          <h2 className="mt-10 font-serif text-2xl text-navy">How we work</h2>
           <p className="mt-4 text-base leading-relaxed text-slate">
             From first conversation through closing, we keep the process
             practical: market context, realistic pricing, and next steps you can
