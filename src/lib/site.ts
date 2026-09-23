@@ -52,8 +52,6 @@ export const LOOPNET_BROWSE_URL =
 export const LOOPNET_LEASE_BROWSE_URL =
   "https://www.loopnet.com/search/commercial-real-estate/bakersfield-ca/for-lease/";
 
-export const JOBAH_INVENTORY_REF_URL = "https://jobahcri.com/listings";
-
 export const pillars = [
   {
     title: "Commercial sales",
