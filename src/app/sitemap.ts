@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { listings } from "@/data/listings";
 import { siteConfig } from "@/lib/site";
 
 const routes = [
@@ -17,10 +18,24 @@ const routes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.map((path) => ({
+  const staticEntries = routes.map((path) => ({
     url: `${siteConfig.url}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
-    priority: path === "" ? 1 : path.startsWith("/services/") || path === "/insights" ? 0.8 : 0.7,
+    priority:
+      path === ""
+        ? 1
+        : path.startsWith("/services/") || path === "/insights"
+          ? 0.8
+          : 0.7,
   }));
+
+  const listingEntries = listings.map((l) => ({
+    url: `${siteConfig.url}/listings/${l.id}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...listingEntries];
 }
